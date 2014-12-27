@@ -1,0 +1,136 @@
+body{
+	width: 800px;
+	margin: 5px auto;
+	padding: 0;
+	background: #ccc url('../images/body-bg.png') repeat center 75px;
+	min-height: 800px;
+	font-family: sans-serif;
+	font-size: 11px;
+	}
+h1#header{
+	margin: 0;
+	xmargin-bottom: 50px;
+	height: 50px;
+	xmin-width: 822px;
+	background: #333 url('../images/header-bg.png') no-repeat 12px center;
+	xbackground-color: #fcff00;
+	xcolor: #4b3700;
+	overflow: hidden;
+	xpadding: 25px 0 0 0;
+	text-indent: -9999em;
+	
+	}
+a.imagelink{
+	text-indent: -9999em;
+	display: block;
+	xmargin-left: 25px;
+	width: 60px;
+	height: 60px;
+	position: relative;
+	border: 5px solid #aaa;
+	xborder-width: 12px 13px 13px 12px;
+	}
+a.imagelink:hover {
+    border-color: #e9ee41;
+    }
+a#illus-crime{
+	background-image: url('../images/thumbs/illus-crime.png');
+}
+a#illus-demon{
+	background-image: url('../images/thumbs/illus-demon.png');
+}
+a#illus-freshman{
+	background-image: url('../images/thumbs/illus-freshman.png');
+}
+div.imageframe{
+	background-color: #ddd;
+	position: absolute;
+    overflow: hidden;
+    xpadding: 20px;
+	z-index: 99;
+	width: 100%;
+	height: 100%;
+	visibility: hidden;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+div.section{
+    background: #eee;
+    xpadding: 15px;
+    border-bottom: 2px solid #d76c00;
+    border-top: 2px solid #006cd7;
+    margin-bottom: 10px;
+    width: 470px;
+    float: left;
+    }
+div.leftcolumn{
+    width: 270px;
+    margin-right: 20px;
+    float: left;
+    padding: 20px;
+    background: #ddd;
+    }
+
+h2{
+    border-bottom: 2px solid #333;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 5px 20px 3px;
+    background: #444;
+    margin: 0;
+    font-size: 100%;
+    font-weight: normal;
+    }
+iwh2#illustrations{
+    background: transparent url('../images/illustration-bg.png') no-repeat 3px 17px;
+    height: 50px;
+    margin: 0 0 25px 0;
+    
+    text-indent: -9999em;
+}
+div#text p{
+    margin: 0;
+    font-size: 80%
+}
+div#container{
+    min-height: 100%;
+    padding-top: 0;
+    border-top: 5px solid #444;
+    }
+div#first{
+    background: transparent url('../images/divider.png') no-repeat 0 51px;
+    height: 55px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #d76c00;
+}
+
+/* For modern browsers */
+.cf:before,
+.cf:after {
+    content:"";
+    display:table;
+}
+
+.cf:after {
+    clear:both;
+}
+
+/* For IE 6/7 (trigger hasLayout) */
+.cf {
+    zoom:1;
+}
+ul.imagelist{
+    list-style-type: no-style;
+    margin: 20px 0 0 0;
+    padding: 0 0 0 20px;
+}
+ul.imagelist li{
+    padding: 0;
+	float: left;
+    xwidth: 60px;
+    margin: 0 20px 20px 0;
+    display: block;
+}
