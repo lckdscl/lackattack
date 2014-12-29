@@ -58,7 +58,12 @@ p.player-info {
 	top: 0;
 	left: 1em;
 }
-
+div.touch-controller {
+	height: 100px;
+	background: #445;
+	background-image: url('../images/touchcontroller-divider.png');
+	background-size: 25%;
+}
 div#help-menu{
 	position: absolute;
 	width: 48%;
@@ -105,3 +110,4 @@ td {
 .cf:after {
     clear: both;
 }
+

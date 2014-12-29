@@ -4,6 +4,11 @@ define([], function() {
 	function HelpMenu() {
 		this.element = document.getElementById("help-menu");
 		this.element.setAttribute("style","visibility: visible");
+		
+		$(this.element).on("tap", function(event){
+			this.setAttribute("style","visibility: hidden");
+		});
+		
 	};
 	
 	HelpMenu.prototype.toggle = function() {

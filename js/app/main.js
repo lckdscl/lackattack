@@ -3,6 +3,7 @@ define(function (require) {
 	var Camera = require('./core/camera');
 	var PlayerInfo = require('./view/playerinfo');
 	var HelpMenu = require('./view/helpmenu');
+	var TouchController = require('./view/touchcontroller');
 	var settings = require('./settings/settings');
 	require('jquery');
 	require('jquery.mobile.custom');
@@ -14,10 +15,14 @@ define(function (require) {
 	
 	var players = [];
 	
+
+	
+	helpMenu = new HelpMenu;
+	round = new Round;
 	_.each(settings.players, function(player) { 
 		var newPlayer = new Player(player.name);
 		newPlayer.viewPort = document.createElement("div");
-		newPlayer.viewPort.className = "viewport";
+		newPlayer.viewPort.className = "viewport cf";
 		document.getElementById("viewports").appendChild(newPlayer.viewPort);
 		newPlayer.camera = new Camera(newPlayer.viewPort);
 		newPlayer.playerInfo = new PlayerInfo(newPlayer, newPlayer.viewPort);
@@ -25,11 +30,15 @@ define(function (require) {
 		newPlayer.color = 'rgb(' + player.color.r + ',' + player.color.g + ',' + player.color.b + ')';
 		newPlayer.wallColor = 'rgb(' + player.wallColor.r + ',' + player.wallColor.g + ',' + player.wallColor.b + ')';
 		players.push(newPlayer);
+		new TouchController(newPlayer, newPlayer.viewPort);
+		$(newPlayer.viewPort).on("tap",function(){
+			if(newPlayer.playing == false){
+				round.addPlayer(newPlayer);
+				newPlayer.camera.following = newPlayer.cycle;
+			}
+		});
+		
 	});
-	
-	helpMenu = new HelpMenu;
-	round = new Round;
-
 	
 	$(document.body).on('keydown', function(e) {
 		switch (e.which) {
@@ -82,14 +91,10 @@ define(function (require) {
 	
 	$("h1").on("tap",function(){
 				round.start();
+				helpMenu.hide();
 				players[0].camera.showRound(round);
 				players[1].camera.showRound(round);
 	});
 	
-	$(document.body).on("swipeleft",function(){
-				round.players[0].cycle.turnLeft();
-	});
-	$(document.body).on("swiperight",function(){
-				round.players[0].cycle.turnRight();
-	});
+
 });
