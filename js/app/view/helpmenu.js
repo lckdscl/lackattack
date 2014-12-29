@@ -14,6 +14,10 @@ define([], function() {
 		}
 	};
 	
+	HelpMenu.prototype.hide = function() {
+		this.element.setAttribute("style","visibility: hidden");
+	};
+	
 	return HelpMenu;
 
 });

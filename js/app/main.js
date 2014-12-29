@@ -33,7 +33,7 @@ define(function (require) {
 	
 	$(document.body).on('keydown', function(e) {
 		switch (e.which) {
-			case 37:
+			case 65:
 				if(players[0].playing == false){
 					round.addPlayer(players[0]);
 					players[0].camera.following = players[0].cycle;
@@ -41,7 +41,7 @@ define(function (require) {
 					players[0].cycle.turnLeft();
 				}
 				break;
-			case 39:
+			case 68:
 				if(players[0].playing == false){
 					round.addPlayer(players[0]);
 					players[0].camera.following = players[0].cycle;
@@ -49,7 +49,7 @@ define(function (require) {
 					players[0].cycle.turnRight();
 				}
 				break;
-			case 65:
+			case 37:
 				if(players[1].playing == false){
 					round.addPlayer(players[1]);
 					players[1].camera.following = players[1].cycle;
@@ -57,7 +57,7 @@ define(function (require) {
 					players[1].cycle.turnLeft();
 				}
 				break;
-			case 68:
+			case 39:
 				if(players[1].playing == false){
 					round.addPlayer(players[1]);
 					players[1].camera.following = players[1].cycle;
@@ -70,6 +70,7 @@ define(function (require) {
 				break;
 			case 13:
 				round.start();
+				helpMenu.hide();
 				players[0].camera.showRound(round);
 				players[1].camera.showRound(round);
 				break;
