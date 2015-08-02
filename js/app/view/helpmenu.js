@@ -5,7 +5,7 @@ define([], function() {
 		this.element = document.getElementById("help-menu");
 		this.element.setAttribute("style","visibility: visible");
 		
-		$(this.element).on("tap", function(event){
+		this.element.addEventListener('touchstart', function(e){
 			this.setAttribute("style","visibility: hidden");
 		});
 		

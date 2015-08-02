@@ -1,4 +1,4 @@
-define(['jquery.mobile.custom'], function() {
+define(function() {
 
 	
 	function TouchController(player, parent) {

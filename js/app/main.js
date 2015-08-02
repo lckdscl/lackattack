@@ -5,8 +5,6 @@ define(function (require) {
 	var HelpMenu = require('./view/helpmenu');
 	var TouchController = require('./view/touchcontroller');
 	var settings = require('./settings/settings');
-	require('jquery');
-	require('jquery.mobile.custom');
 
 
 	var Player = require('./core/player');
@@ -14,8 +12,6 @@ define(function (require) {
 	var Cycle = require('./core/cycle');
 	
 	var players = [];
-	
-
 	
 	helpMenu = new HelpMenu;
 	round = new Round;
@@ -31,7 +27,7 @@ define(function (require) {
 		newPlayer.wallColor = 'rgb(' + player.wallColor.r + ',' + player.wallColor.g + ',' + player.wallColor.b + ')';
 		players.push(newPlayer);
 		new TouchController(newPlayer, newPlayer.viewPort);
-		$(newPlayer.viewPort).on("tap",function(){
+		newPlayer.viewPort.addEventListener('touchstart', function(e){
 			if(newPlayer.playing == false){
 				round.addPlayer(newPlayer);
 				newPlayer.camera.following = newPlayer.cycle;
@@ -40,9 +36,9 @@ define(function (require) {
 		
 	});
 	
-	$(document.body).on('keydown', function(e) {
-		switch (e.which) {
-			case 65:
+	document.body.onkeypress=function(e) {
+		switch (e.key) {
+			case "a":
 				if(players[0].playing == false){
 					round.addPlayer(players[0]);
 					players[0].camera.following = players[0].cycle;
@@ -50,7 +46,7 @@ define(function (require) {
 					players[0].cycle.turnLeft();
 				}
 				break;
-			case 68:
+			case "d":
 				if(players[0].playing == false){
 					round.addPlayer(players[0]);
 					players[0].camera.following = players[0].cycle;
@@ -58,7 +54,7 @@ define(function (require) {
 					players[0].cycle.turnRight();
 				}
 				break;
-			case 37:
+			case "ArrowLeft":
 				if(players[1].playing == false){
 					round.addPlayer(players[1]);
 					players[1].camera.following = players[1].cycle;
@@ -66,7 +62,7 @@ define(function (require) {
 					players[1].cycle.turnLeft();
 				}
 				break;
-			case 39:
+			case "ArrowRight":
 				if(players[1].playing == false){
 					round.addPlayer(players[1]);
 					players[1].camera.following = players[1].cycle;
@@ -74,22 +70,22 @@ define(function (require) {
 					players[1].cycle.turnRight();
 				}
 				break;
-			case 80:
+			case "p":
 				round.pause();
 				break;
-			case 13:
+			case "Enter":
 				round.start();
 				helpMenu.hide();
 				players[0].camera.showRound(round);
 				players[1].camera.showRound(round);
 				break;
-			case 72:
+			case "h":
 				helpMenu.toggle();
 				break;
 		}
-	});
+	};
 	
-	$("h1").on("tap",function(){
+	document.getElementById("main-header").addEventListener('touchstart', function(e){
 				round.start();
 				helpMenu.hide();
 				players[0].camera.showRound(round);

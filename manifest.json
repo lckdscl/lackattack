@@ -1,0 +1,15 @@
+{
+  "name": "lackATTACK",
+  "description": "Light cycle game",
+  "version": "0.1",
+  "manifest_version": 2,
+  "app": {
+    "background": {
+      "scripts": ["js/background.js"]
+    }
+  }
+  "sockets": {
+    "udp": {
+      "send": "*"
+    }
+}
